@@ -1,12 +1,9 @@
-const express = require('express');
+const express = require('express')
 
-const {omiseCheckoutCreditCard, omiseCheckoutInternetBanking, omiseWebHooks, getInternetBankingCharge} = require('../checkoutControl/checkout')
+const {checkoutCreditCard} = require('../controlller/checkoutControl')
 
-const checkoutRoutes = express.Router()
+const Route = express.Router()
 
-checkoutRoutes.post('/checkout-creditCard', omiseCheckoutCreditCard)
-checkoutRoutes.post('/checkout-internetBanking', omiseCheckoutInternetBanking)
-checkoutRoutes.post('/webhooks', omiseWebHooks)
-checkoutRoutes.get('/bank-charge', getInternetBankingCharge)
+Route.post('/checkout-credit-card', checkoutCreditCard)
 
-module.exports = checkoutRoutes
+module.exports = Route
